@@ -45,6 +45,7 @@
 		91BB87FC1936074000BA691E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BB87FB1936074000BA691E /* MBProgressHUD.m */; };
 		91BE743619372E5000496A70 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BE743519372E5000496A70 /* SettingsManager.m */; };
 		91BE7439193730F700496A70 /* RSSNewsSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BE7438193730F700496A70 /* RSSNewsSetting.m */; };
+		91BEA7AA1938C2CE002ADC87 /* MainStoryboardIPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91BEA7A91938C2CE002ADC87 /* MainStoryboardIPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		91BE743519372E5000496A70 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		91BE7437193730F700496A70 /* RSSNewsSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSNewsSetting.h; sourceTree = "<group>"; };
 		91BE7438193730F700496A70 /* RSSNewsSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSNewsSetting.m; sourceTree = "<group>"; };
+		91BEA7A91938C2CE002ADC87 /* MainStoryboardIPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboardIPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				91BB87F11935DC5900BA691E /* Controller */,
 				91BB87F21935DC7000BA691E /* Other */,
 				91BB87341935D27C00BA691E /* Main.storyboard */,
+				91BEA7A91938C2CE002ADC87 /* MainStoryboardIPad.storyboard */,
 				91BB87291935D27C00BA691E /* Supporting Files */,
 			);
 			path = BestRSSParser;
@@ -426,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91BEA7AA1938C2CE002ADC87 /* MainStoryboardIPad.storyboard in Resources */,
 				91BB873B1935D27C00BA691E /* Images.xcassets in Resources */,
 				91BB872D1935D27C00BA691E /* InfoPlist.strings in Resources */,
 				91BB87361935D27C00BA691E /* Main.storyboard in Resources */,
@@ -606,8 +610,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "BestRSSParser/BestRSSParser-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -625,8 +631,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "BestRSSParser/BestRSSParser-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
