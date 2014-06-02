@@ -17,6 +17,10 @@
 @property (nonatomic, copy) NSString *newsFullText;
 @property (nonatomic, copy) NSString *newsDate;
 
--(id)initWithNewsTitle:(NSString *)titleString newsLink:(NSString *)linkString newsDescriptor:(NSString *)descriptorString newsFullText:(NSString *)fullTextString newsDate:(NSString *)date;
+-(id)initWithNewsTitle:(NSString *)titleString
+              newsLink:(NSString *)linkString
+        newsDescriptor:(NSString *)descriptorString
+          newsFullText:(NSString *)fullTextString
+              newsDate:(NSString *)date;
 
 @end

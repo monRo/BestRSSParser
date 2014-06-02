@@ -14,7 +14,14 @@
 {
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0/255.0f green:141/255.0f blue:255/255.0f alpha:1.0f]];
-
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    for (id viewController in tabBarController.viewControllers) {
+        if ([viewController isKindOfClass:[UISplitViewController class]]) {
+            UISplitViewController *splitViewController = viewController;
+            UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+            splitViewController.delegate = (id)navigationController.topViewController;
+        }
+    }
     return YES;
 }
 							

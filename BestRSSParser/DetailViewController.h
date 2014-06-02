@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
-@interface DetailViewController : UIViewController <UIWebViewDelegate>
+@interface DetailViewController : UIViewController <UIWebViewDelegate, UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) NSString *link;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

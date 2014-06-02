@@ -12,7 +12,8 @@
 
 +(void)getFeedsForURL:(NSString *)url success:(void (^)(NSArray *))goodNews failure:(void (^)(NSError *))badNews
 {
-    AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
+    AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] success:^
+                                            (NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
         NSMutableArray *array = [[NSMutableArray alloc] init];
         NSString *title;
         NSArray *result = [XMLDocument nodesForXPath:@"rss/channel/item" error:nil];

@@ -10,8 +10,8 @@
 
 @implementation RSSNewsSetting
 @synthesize fullLink = _fullLink;
-
-- (id) initWithCoder: (NSCoder *)coder {
+    
+- (id)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
         self.titleNews = [coder decodeObjectForKey:@"title"];
         self.fullLink = [coder decodeObjectForKey:@"link"];
@@ -21,7 +21,7 @@
     return self;
 }
 
-- (void) encodeWithCoder: (NSCoder *)coder {
+- (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject: self.titleNews forKey:@"title"];
     [coder encodeObject: self.fullLink forKey:@"link"];
     [coder encodeBool: self.isFavorits forKey:@"isFavirites"];

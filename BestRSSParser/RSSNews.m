@@ -10,7 +10,11 @@
 
 @implementation RSSNews
 
--(id)initWithNewsTitle:(NSString *)titleString newsLink:(NSString *)linkString newsDescriptor:(NSString *)descriptorString newsFullText:(NSString *)fullTextString newsDate:(NSString *)date
+-(id)initWithNewsTitle:(NSString *)titleString
+              newsLink:(NSString *)linkString
+        newsDescriptor:(NSString *)descriptorString
+          newsFullText:(NSString *)fullTextString
+              newsDate:(NSString *)date
 {
     if ((self =[super init])) {
         self.newsTitle = titleString;

@@ -18,15 +18,18 @@
 @end
 
 @implementation MainViewController
+@synthesize delegate;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
     self.isOpen = NO;
     [self.hubArray removeAllObjects];
     
     self.rssNewsArray = [[NSMutableArray alloc] init];
-    self.grandpaNewsArray = [[NSMutableArray alloc] init];
+    self.allNewsFeed = [[NSMutableArray alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl = self.refreshControl;
@@ -35,7 +38,8 @@
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated
+{
     self.hubArray = [[SettingsManager sharedSetting] getHubs];
     [self startParse];
 }
@@ -55,7 +59,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.hubArray objectAtIndex:section] isOpen] ? [[self.grandpaNewsArray objectAtIndex:section] count] : 0;
+    return [[self.hubArray objectAtIndex:section] isOpen] ? [[self.allNewsFeed objectAtIndex:section] count] : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -63,12 +67,12 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.grandpaNewsArray count];
+    return [self.allNewsFeed count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [[[self.grandpaNewsArray objectAtIndex:section] objectAtIndex:section] rssTitle];
+    return [[[self.allNewsFeed objectAtIndex:section] objectAtIndex:section] rssTitle];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,7 +84,7 @@
     if (cell == nil) {
         cell = [[RSSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    NSArray *array = [self.grandpaNewsArray objectAtIndex:[indexPath section]];
+    NSArray *array = [self.allNewsFeed objectAtIndex:[indexPath section]];
     cell.rssTitle.text = [[array objectAtIndex:indexPath.row] newsTitle];
     cell.rssDescription.text = [[array objectAtIndex:indexPath.row] newsDescription];
     cell.rssDate.text = [[array objectAtIndex:indexPath.row] newsDate];
@@ -91,7 +95,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSString *sectionTitle = [[[self.grandpaNewsArray objectAtIndex:section] objectAtIndex:section] rssTitle];
+    NSString *sectionTitle = [[[self.allNewsFeed objectAtIndex:section] objectAtIndex:section] rssTitle];
     NSString *arrowNmae = @"normalArrow";
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0.0f, 0.0f, 30.0f, 30.0f);
@@ -103,13 +107,8 @@
     return button;
 }
 
-- (void)didSelectSection:(UIButton*)sender {
-//
-//    self.indexPathsToInsert = [[NSMutableArray alloc] init];
-//    for (NSMutableArray *array in [self.grandpaNewsArray objectAtIndex:sender.tag]) {
-//        [self.indexPathsToInsert addObject:array];
-//    }
-//    NSLog(@"%@", self.indexPathsToInsert);
+- (void)didSelectSection:(UIButton*)sender
+{
     if ([[self.hubArray objectAtIndex:sender.tag] isOpen]) {
         [[self.hubArray objectAtIndex:sender.tag] setIsOpen:NO];
     } else {
@@ -121,24 +120,31 @@
     [self.tableView reloadData];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.detailViewController.link = [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsLink];
+    NSLog(@"%@", [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsLink]);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"showRSSDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DetailViewController *destViewController = segue.destinationViewController;
-        destViewController.link = [[[self.grandpaNewsArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsLink];
+        destViewController.link = [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsLink];
     }
 }
 
 -(void)startParse
 {
     [self.tableView reloadData];
-    [self.grandpaNewsArray removeAllObjects];
+    [self.allNewsFeed removeAllObjects];
     for (int i = 0; i < [self.hubArray count]; i ++) {
         //
         if ([[self.hubArray objectAtIndex:i] isFavorits] == YES) {
             [InternetGateway getFeedsForURL:[[self.hubArray objectAtIndex:i] fullLink] success:^(NSArray *array)
              {
-                 [self.grandpaNewsArray addObject:array];
+                 [self.allNewsFeed addObject:array];
                  [self.tableView reloadData];
              } failure:^(NSError *error) {
                  NSLog(@"Failure: %@", error);

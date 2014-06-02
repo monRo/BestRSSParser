@@ -50,7 +50,8 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)handleSwipe:(UISwipeGestureRecognizer*)swipe {
+-(void)handleSwipe:(UISwipeGestureRecognizer*)swipe
+{
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         CGPoint location = [swipe locationInView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
@@ -98,7 +99,8 @@
     return YES;
 }
 
-- (IBAction)addHubButton:(UIBarButtonItem *)sender {
+- (IBAction)addHubButton:(UIBarButtonItem *)sender
+{
     UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"New feed" message:@"Please type site rss feed's" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     av.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     UITextField *titleRSS = [av textFieldAtIndex:0];

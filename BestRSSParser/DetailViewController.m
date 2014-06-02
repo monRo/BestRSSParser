@@ -10,6 +10,10 @@
 
 @interface DetailViewController ()
 
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
+
+-(void) configureView;
+
 @end
 
 @implementation DetailViewController
@@ -23,17 +27,33 @@
     return self;
 }
 
+-(void)setLink:(NSString *)link
+{
+    if (_link != link) {
+        _link = link;
+        
+        [self configureView];
+    }
+}
+
+-(void)configureView
+{
+    if (self.link) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithString:self.link]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView setScalesPageToFit:YES];
+        
+        [self.webView loadRequest:request];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.webView setDelegate:self];
-    NSLog(@"%@", self.link);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithString:self.link]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView setScalesPageToFit:YES];
     
-    [self.webView loadRequest:request];
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +71,19 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
+{
+    barButtonItem.title = NSLocalizedString(@"Feed", @"Feed");
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.masterPopoverController = popoverController;
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.masterPopoverController = nil;
 }
 
 @end
