@@ -142,7 +142,13 @@
                             <constraint firstAttribute="trailing" secondItem="GQr-Go-ohC" secondAttribute="trailing" id="vw4-h8-8Cg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LpW-VU-6fx"/>
+                    <navigationItem key="navigationItem" id="LpW-VU-6fx">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="ITt-dn-T4V">
+                            <connections>
+                                <action selector="shareNewsToFacebookButton:" destination="mvY-MY-aHB" id="Blj-Lu-v4D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="GQr-Go-ohC" id="YUW-zE-tMi"/>
                     </connections>

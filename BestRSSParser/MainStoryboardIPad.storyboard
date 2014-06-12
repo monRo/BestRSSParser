@@ -32,7 +32,13 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Wkv-LT-N1R"/>
+                    <navigationItem key="navigationItem" id="Wkv-LT-N1R">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="MGh-Iw-key">
+                            <connections>
+                                <action selector="shareNewsToFacebookButton:" destination="3ot-BZ-vyw" id="aOw-Za-SGG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="webView" destination="kbS-9d-JUT" id="cpQ-Ne-Vig"/>

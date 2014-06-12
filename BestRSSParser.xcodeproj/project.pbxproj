@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		919BA3EA193627C700A8F8AD /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 919BA3E9193627C700A8F8AD /* SettingViewController.m */; };
+		91B9A97D193C7F8D00448765 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B9A97C193C7F8D00448765 /* FacebookSDK.framework */; };
+		91B9AA5C193C856D00448765 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B9AA5B193C856D00448765 /* SystemConfiguration.framework */; };
+		91B9AA5E193C857900448765 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B9AA5D193C857900448765 /* Security.framework */; };
+		91B9AA60193C858900448765 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B9AA5F193C858900448765 /* MessageUI.framework */; };
+		91B9AA62193C8DAE00448765 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B9AA61193C8DAE00448765 /* Social.framework */; };
+		91B9AA67193CA5CF00448765 /* feeds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91B9AA66193CA5CF00448765 /* feeds.plist */; };
 		91BB87231935D27C00BA691E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BB87221935D27C00BA691E /* Foundation.framework */; };
 		91BB87251935D27C00BA691E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BB87241935D27C00BA691E /* CoreGraphics.framework */; };
 		91BB87271935D27C00BA691E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BB87261935D27C00BA691E /* UIKit.framework */; };
@@ -61,6 +67,12 @@
 /* Begin PBXFileReference section */
 		919BA3E8193627C700A8F8AD /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		919BA3E9193627C700A8F8AD /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		91B9A97C193C7F8D00448765 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		91B9AA5B193C856D00448765 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		91B9AA5D193C857900448765 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		91B9AA5F193C858900448765 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		91B9AA61193C8DAE00448765 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		91B9AA66193CA5CF00448765 /* feeds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = feeds.plist; sourceTree = "<group>"; };
 		91BB871F1935D27C00BA691E /* BestRSSParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRSSParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91BB87221935D27C00BA691E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		91BB87241935D27C00BA691E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,7 +149,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B9AA62193C8DAE00448765 /* Social.framework in Frameworks */,
+				91B9AA60193C858900448765 /* MessageUI.framework in Frameworks */,
+				91B9AA5E193C857900448765 /* Security.framework in Frameworks */,
+				91B9AA5C193C856D00448765 /* SystemConfiguration.framework in Frameworks */,
 				91BB87251935D27C00BA691E /* CoreGraphics.framework in Frameworks */,
+				91B9A97D193C7F8D00448765 /* FacebookSDK.framework in Frameworks */,
 				91BB87271935D27C00BA691E /* UIKit.framework in Frameworks */,
 				91BB87231935D27C00BA691E /* Foundation.framework in Frameworks */,
 			);
@@ -178,6 +195,11 @@
 		91BB87211935D27C00BA691E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91B9AA61193C8DAE00448765 /* Social.framework */,
+				91B9AA5F193C858900448765 /* MessageUI.framework */,
+				91B9AA5D193C857900448765 /* Security.framework */,
+				91B9AA5B193C856D00448765 /* SystemConfiguration.framework */,
+				91B9A97C193C7F8D00448765 /* FacebookSDK.framework */,
 				91BB87221935D27C00BA691E /* Foundation.framework */,
 				91BB87241935D27C00BA691E /* CoreGraphics.framework */,
 				91BB87261935D27C00BA691E /* UIKit.framework */,
@@ -340,6 +362,7 @@
 				91BB87311935D27C00BA691E /* AppDelegate.h */,
 				91BB87321935D27C00BA691E /* AppDelegate.m */,
 				91BB873A1935D27C00BA691E /* Images.xcassets */,
+				91B9AA66193CA5CF00448765 /* feeds.plist */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -412,6 +435,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 91BB87161935D27C00BA691E;
 			productRefGroup = 91BB87201935D27C00BA691E /* Products */;
@@ -430,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91BEA7AA1938C2CE002ADC87 /* MainStoryboardIPad.storyboard in Resources */,
+				91B9AA67193CA5CF00448765 /* feeds.plist in Resources */,
 				91BB873B1935D27C00BA691E /* Images.xcassets in Resources */,
 				91BB872D1935D27C00BA691E /* InfoPlist.strings in Resources */,
 				91BB87361935D27C00BA691E /* Main.storyboard in Resources */,
@@ -602,6 +627,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BestRSSParser/BestRSSParser-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -623,6 +652,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BestRSSParser/BestRSSParser-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

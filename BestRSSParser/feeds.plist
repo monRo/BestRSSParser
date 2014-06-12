@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Link</key>
+	<array>
+		<string>http://fakty.ua/rss_feed/ukraina</string>
+		<string>http://ria.ru/export/rss2/world/index.xml</string>
+		<string>http://www.pravda.com.ua/rus/rss/view_news/</string>
+		<string>http://podrobnosti.ua/rss/news/ukraine.rss/</string>
+		<string>http://news.liga.net/top/rss.xml</string>
+	</array>
+	<key>Title</key>
+	<array>
+		<string>Факты Украина</string>
+		<string>Российское Информационное Агентство &quot;РИА Новости&quot;</string>
+		<string>Украинская правда</string>
+		<string>ПОДРОБНОСТИ: Новости в Украине</string>
+		<string>ЛІГА.Новости</string>
+	</array>
+</dict>
+</plist>

@@ -11,7 +11,10 @@
 
 @interface DetailViewController : UIViewController <UIWebViewDelegate, UISplitViewControllerDelegate>
 
-@property (weak, nonatomic) NSString *link;
+@property (copy, nonatomic) NSString *link;
+@property (copy, nonatomic) NSString *titleNews;
+@property (copy, nonatomic) NSString *descriptionsNews;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+- (IBAction)shareNewsToFacebookButton:(UIBarButtonItem *)sender;
 
 @end

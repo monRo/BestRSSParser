@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RSSNewsSetting.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) RSSNewsSetting *setting;
+@property (strong, nonatomic) NSDictionary *refererAppLink;
 
 @end

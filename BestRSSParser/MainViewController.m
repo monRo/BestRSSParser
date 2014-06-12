@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 #import "InternetGateway.h"
 #import "SettingsManager.h"
+#import "RSSNewsSetting.h"
 
 
 @interface MainViewController ()
@@ -123,6 +124,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.detailViewController.link = [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsLink];
+    self.detailViewController.titleNews = [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsTitle];
+    self.detailViewController.descriptionsNews = [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsDescription];
     NSLog(@"%@", [[[self.allNewsFeed objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] newsLink]);
 }
 
@@ -155,6 +158,17 @@
         //
     }
     [self.tableView reloadData];
+}
+
+-(void)readFromPlist
+{
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"feeds" ofType:@"plist"]];
+    NSArray *arrayTitle = [dictionary objectForKey:@"Title"];
+    NSArray *arrayLink = [dictionary objectForKey:@"Link"];
+    for (int i = 0; i < [arrayTitle count]; i ++) {
+        RSSNewsSetting *setting = [[RSSNewsSetting alloc] init];
+    }
+
 }
 
 @end
